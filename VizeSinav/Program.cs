@@ -24,7 +24,7 @@ namespace VizeSinav
                     {
                         Console.Write("Lütfen girmek istediğiniz kitap sayısını yazınız : ");
                         int ksayisi = int.Parse(Console.ReadLine());//sayı girisi
-                        Kitap[] Kitaplar = new Kitap[ksayisi];//dizinin uzunlugu sayı
+                        Kitap[] Kitaplar = new Kitap[ksayisi];//kitap türünde dizinin uzunlugu kullanıcının gırdıgı sayı
                         int i = 0;
                         do
                         {
@@ -38,7 +38,7 @@ namespace VizeSinav
                             if (2020 < kitap.BasimTarihi.Year)//tarih kontrol
                             {
                                 Console.WriteLine("2020 den büyük olamaz. Lütfen tekrar giriniz.");
-                                continue;//bu komuttan sonra  yazılan komutlar calısmaz*
+                                continue;//bu komuttan sonra  yazılan komutlar calısmaz*                               
                             }
                             Console.Write("Türü : ");
                             kitap.Tur = Console.ReadLine();
@@ -122,9 +122,9 @@ namespace VizeSinav
                 //İşlem yapacağımız dosyanın yolunu belirtiyoruz.Sureklı yazmaktansa degıskene bır kere aktarıp her yerde kullanmak daha kolay ve pratık geldı
                 bool s = File.Exists(dosya_yolu);
                 FileStream fs = new FileStream(dosya_yolu, FileMode.Append, FileAccess.Write);
-                //Bir file stream nesnesi oluşturuyoruz. 1.parametre dosya yolunu,
-                //2.parametre dosya varsa açılacağını yoksa oluşturulacağını belirtir,
-                //3.parametre dosyaya erişimin veri yazmak için olacağını gösterir.
+                //file stream nesnesi oluşturdum, 1.parametre dosya yolunu,
+                //2.parametre dosya varsa açar yoksa olusturur
+                //3.parametre dosyaya yazdırma işlemi için ulasılacagını belırtır
                 StreamWriter sw = new StreamWriter(fs);
                 //Yazma işlemi için bir StreamWriter nesnesi oluşturduk.
                 if (s == false) sw.WriteLine("KİTAP ADI     KİTAP YAZARI     KİTAP TÜRÜ   BASIM YILI");
